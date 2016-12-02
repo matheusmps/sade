@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+body {padding: 0; font-family: 'Roboto', sans-serif; font-weight: 100; color: #F8F8F8;}
+a {color: #FFF;}
+a:active, a:focus {color: #FFF;}
+p::-moz-selection { background: #F96500}
+p::selection { background: #F96500; }
+p,h1,h2 { font-weight: 100; font-style: normal;}
+header {background: #121212; height: 115px;}
+header #logo-sade {float: left; margin-top: 20px;}
+header #logo-conpec {float: right; margin-top: 45px;}
+body {background: url(../images/bg-home.png) no-repeat 0 -140px;}
+.main {position: relative; padding-top: 120px;}
+h1.main-title {font-size: 60px; font-weight: 100; text-align: center; margin-bottom: 60px;}
+p.main-description {position: relative; left: 50%; margin-left: -445px; font-size: 18px; text-align: center; width: 890px; margin-bottom: 80px}
+.btn-main {background:none; border: 1px solid #FFF; border-radius: 0; color: #FFF; font-weight: 100; text-transform: uppercase; padding: 15px 40px; font-size: 18px}
+.btn-main:hover {color: #FFF;}
+.btn-main:focus {border: 1px solid #FFF;} 
+.btn-wrapper {text-align: center;}
+.select-area {margin-top: 140px; background: #121212; height: 75px; text-align: center;}
+.btn-select-area {-webkit-transition: all ease-in 0.1s; background: #3E4753; border-radius: 0; color: #FFF; font-weight: 100; text-transform: uppercase; padding: 24px 70px; font-size: 20px}
+.btn-select-area:hover {background: #E35B00; color: #FFF;}
+footer {text-align: center; margin-top: 65px; font-size: 13px;}
+h1.general-title {borders-bottom: 1px solid #DDD; padding-bottom: 20px; margin-bottom: 30px;}
+.dev-register .row {margin-bottom: 40px;}
+.row label {font-weight: 300; font-size: 17px;}
+.row .btn-main {font-size: 16px;}
+input.form-control,
+textarea.form-control,select.form-control {color: #FFF; font-size: 16px; background: none; border: none; border-left: 1px solid #DDD; border-bottom: 1px solid #DDD; border-radius: 0; float: left; height: 45px; padding: 15px;}
+input.form-control:focus,textarea.form-control:focus,select.form-control:focus {box-shadow: none;}
+input.form-control::-webkit-input-placeholder {color: #DDD;}
+input.form-control:-moz-placeholder {color: #DDD; opacity:  1;}
+input.form-control::-moz-placeholder {color: #DDD;  opacity:  1;}
+input.form-control:-ms-input-placeholder {color: #DDD;}
+.has-error{color:red; font-weight: bolder;}
