@@ -1,4 +1,4 @@
-package com.mc437.sade.cucumber;
+package com.mc437;
 
 import java.io.File;
 
@@ -6,10 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.mc437.sade.cucumber.stepdefs.StepDefs;
+import com.mc437.stepdefs.StepDefs;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -35,8 +34,6 @@ public class LoginMembroScenario extends StepDefs {
 		driver.close();
 	}
 
-	
-	
 	@When("Entrar na página login admin")
 	public void openMembro(){
 		driver.get(rootUrl);
