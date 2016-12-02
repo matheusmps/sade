@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>SADE- Conpec</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="css/jumbotron.css" rel="stylesheet">
+    <link href="css/globalstyle.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="scripts/ie-emulation-modes-warning.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="scripts/ie10-viewport-bug-workaround.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+
+    <script>
+        //Verify the document height to size the bg image
+        $(document).ready(function(){
+            var docHeight = ($(document).height());
+            $('.main').css('min-height',docHeight-115);
+        });
+    </script>
+
+    <body>
+        <header>
+            <nav id="top-bar" class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-header">
+                    <img src="">
+                    <a class="user-name navbar-brand" href="#">Josinelson da Silva</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="top-menu navbar-form navbar-right">
+                        <li>
+                            <a href="">Dados da conta</a>
+                        </li>
+                        <li>
+                            <a href="">Sair</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <nav id="sub-bar" class="navbar navbar-fixed-top">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#toggle-menu" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1 class="page-title">&raquo; Meu perfil</h1>
+                <ul id="main-menu">
+                    <div class="container">
+                        <li>
+                            <a href="">Meu perfil</a>
+                        </li>
+                        <li>
+                            <a href="">Skills</a>
+                        </li>
+                        <li>
+                            <a href="">Feedbacks</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+
+            <div id="toggle-menu">
+                
+            </div>
+        </header>
+
+       
+        <div class="main">
+
+        <!--- DEFAULT LOGGED PAGES TILL HERE -->
+            <div id="main-cont" class="container">
+                <div class="profile-box box-style">
+                    <figure id="user-photo">
+                        <ing src="">
+                    </figure>
+                    <div class="info">
+                        <div class="profile-info-header">
+                            <h2>Josinelson da Silva</h2>
+                            <span>Membro do SADE desde 11/09/2015</span>
+                        </div>
+                        <div class="achievement">
+                            <div class="ball"><span>5</span></div>
+                            <p>Projeto(s) realizado(s)</p>
+                        </div>
+                        <div class="achievement">
+                            <div class="ball"><span>1</span></div>
+                            <p>Projeto(s) em andamento</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content box-style">
+                    <form class="form-dev-edit">
+                        <fieldset>
+                            <h2>Informações pessoais</h2>
+                            <div class="row">     
+                                <div class="col-xs-3">
+                                    <label for="phone">Telefone res.</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="phone" name="phone" value="(19) 4547-4745" aria-describedby="name" placeholder="Seu nome completo">
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <label for="cellphone">Celular</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="cellphone" name="cellphone" value="(19) 93837-3283" aria-describedby="name" placeholder="Seu nome completo">
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <label for="address">Endereço</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="address" name="address" value="Rua Benjamin Franklin, 1454, Cidade Unviersitária - Campinas" aria-describedby="name" placeholder="Seu nome completo">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <h2>Ensino</h2>
+                            <div class="row">     
+                                <div class="col-xs-6">
+                                    <label for="phone">Insituição de ensino</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="phone" name="phone" value="" aria-describedby="name" placeholder="Onde você estuda?">
+                                </div>
+
+                                <div class="col-xs-4">
+                                    <label for="address">Curso</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="address" name="address" value="" aria-describedby="name" placeholder="Seu curso">
+                                </div>
+                                <div class="col-xs-2">
+                                    <label for="address">Ano</label>
+                                    <input type="number" class="form-control" autocomplete="off" id="address" name="address" value="" aria-describedby="name" placeholder="Ano do curso">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label for="available_hours">Disponibilidade (h/semana)</label>
+                                    <input type="number" class="form-control" autocomplete="off" id="available-hours" name="available_hours" value="" aria-describedby="name" placeholder="Disponibilidade de trabalho">
+                                </div>
+                                <div class="col-xs-4">
+                                    <label for="college_hours">Horas graduação (h/semana)</label>
+                                    <input type="number" class="form-control" autocomplete="off" id="college_hours" name="college_hours" value="" aria-describedby="name" placeholder="Horas da graduação">
+                                </div>
+                                <div class="col-xs-4">
+                                    <label for="internship_hours">Horas estágio (h/semana)</label>
+                                    <input type="number" class="form-control" autocomplete="off" id="internship-hours" name="internship_hours" value="" aria-describedby="name" placeholder="Horas de estágio">
+                                </div>                                
+                            </div>
+                        </fieldset>
+                        <div class="row">
+                            <button class="btn btn-default btn-lg btn-main" type="submit">Atualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        <!--- DEFAULT UNLOGGED PAGES TILL HERE -->
+            <footer>
+                <div class="container">
+                    <p>CONPEC - SADE - Sistema de Acompanhamento de Desenvolvedores Externos</p>
+                </div>
+            </footer>
+        </div>
+
+        
+
+    </body>
+</html>

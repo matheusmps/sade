@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>SADE- Conpec</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="css/jumbotron.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="scripts/ie-emulation-modes-warning.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="scripts/ie10-viewport-bug-workaround.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+
+    <script>
+        //Verify the document height to size the bg image
+        $(document).ready(function(){
+            var docHeight = ($(document).height());
+            $('.main').css('min-height',docHeight-115);
+        });
+    </script>
+
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <div id="logo-sade">
+                        <img src="images/sade-logo.png">
+                    </div>
+
+                    <div id="logo-conpec">
+                        <img src="images/conpec-logo.png">
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+       
+        <div class="main">
+
+        <!--- DEFAULT UNLOGGED PAGES TILL HERE -->
+            <div class="container">
+                <div class="cont-main">
+                    <h1 class="general-title">CADASTRO DE DESENVOLVEDOR</h1>
+                    <div class="bd-example" data-example-id="">
+                        <form class="dev-register">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label for="exampleInputEmail1">Nome completo</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="name" name="name" aria-describedby="name" placeholder="Seu nome completo">
+                                </div>
+                                <div class="col-xs-6">
+                                    <label for="exampleInputEmail1">Telefone</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="phone" name="phone" aria-describedby="phone" placeholder="Seu telefone">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label for="exampleInputEmail1">CPF</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="cpf" name="cpf" aria-describedby="cpf" placeholder="Seu CPF">
+                                </div>
+                                <div class="col-xs-6">
+                                    <label for="exampleInputEmail1">Endereço</label>
+                                    <input type="text" class="form-control" autocomplete="off" id="address" name="address" aria-describedby="address" placeholder="Seu endereço completo">
+                                </div>
+                            </div>
+                          
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label for="exampleInputEmail1">E-mail</label>
+                                    <input type="email" class="form-control" autocomplete="off" id="email" name="email" aria-describedby="email" placeholder="Seu e-mail">
+                                </div>
+                                <div class="col-xs-6">
+                                    <label for="exampleInputEmail1">Senha</label>
+                                    <input type="password" class="form-control" id="pass" name="pass" aria-describedby="pass" placeholder="Senha para acesso ao SADE">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="btn-wrapper"><button class="btn btn-main btn-lg centered" href="" role="button" type="submit">Cadastrar</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        <!--- DEFAULT UNLOGGED PAGES TILL HERE -->
+            <footer>
+                <div class="container">
+                    <p>CONPEC - SADE - Sistema de Acompanhamento de Desenvolvedores Externos</p>
+                </div>
+            </footer>
+        </div>
+
+        
+
+    </body>
+</html>

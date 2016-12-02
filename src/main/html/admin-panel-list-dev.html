@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>SADE- Conpec</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="css/jumbotron.css" rel="stylesheet">
+    <link href="css/globalstyle.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="scripts/ie-emulation-modes-warning.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="scripts/ie10-viewport-bug-workaround.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+
+    <script>
+        //Verify the document height to size the bg image
+        $(document).ready(function(){
+            var docHeight = ($(document).height());
+            $('.main').css('min-height',docHeight-115);
+        });
+    </script>
+
+    <body>
+        <header>
+            <nav id="top-bar" class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-header">
+                    <img src="">
+                    <a class="user-name navbar-brand" href="#">Josinelson da Silva</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="top-menu navbar-form navbar-right">
+                        <li>
+                            <a href="">Dados da conta</a>
+                        </li>
+                        <li>
+                            <a href="">Sair</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <nav id="sub-bar" class="navbar navbar-fixed-top">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#toggle-menu" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1 class="page-title">&raquo; Meu perfil</h1>
+                <ul id="main-menu">
+                    <div class="container">
+                        <li>
+                            <a href="">Meu perfil</a>
+                        </li>
+                        <li>
+                            <a href="">Skills</a>
+                        </li>
+                        <li>
+                            <a href="">Feedbacks</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+
+            <div id="toggle-menu">
+                
+            </div>
+        </header>
+
+       
+        <div class="main">
+
+        <!--- DEFAULT LOGGED PAGES TILL HERE -->
+            <div id="main-cont" class="container">
+                <div class="box-title box-style">
+                    <h1>Desenvolvedores cadastrados</h1>
+
+                    <form class="filter" id="dev-filter">
+                            
+                        <div class="form">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <label for="phone">Conhecimento</label>
+                                    <select class="form-control" name="skill" id="skill" name="skill" aria-describedby="skill">
+                                        <option>Conhecimento</option>
+                                        <option>PHP</option>
+                                        <option>Javascript</option>
+                                        <option>Python</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <label for="phone">Nível</label>
+                                    <select class="form-control" name="skill" id="skill" name="skill" aria-describedby="skill">
+                                        <option>Iniciante</option>
+                                        <option>Intermediário</option>
+                                        <option>Avançado</option>
+                                        <option>Experiente</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-xs-2">
+                                    <label for="phone">Disponib. (h)</label>
+                                    <input type="number" placeholder="Disponibilidade" class="form-control" name="availability" id="availability" name="availability" aria-describedby="availability">
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <label for="phone">Nome</label>
+                                    <input type="text" autocomplete="off" placeholder="Nome do dev." class="form-control" name="name" id="name" name="name" aria-describedby="name">
+                                </div>
+
+                                <div class="col-xs-1">
+                                    <label></label>
+                                    <button class="btn btn-default btn-lg btn-main" type="submit">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="content box-style">
+                    <h2>Desenvolvedores</h2>
+                    <div class="list-dev">
+                        
+
+                        <div class="list-dev-item">
+                            <div class="list-dev-photo">
+                                <img src="images/default-photo.png">
+                            </div>
+
+                            <div class="list-dev-item-info">
+                                <div class="list-dev-item-left">
+                                    <h5 class="list-dev-name">Fábio Roberto da Rodrigues</h5>
+                                    <span>Projetos: 14 Hora</span><span>Horas/semana: 12</span>
+                                </div>
+
+                                <div class="list-dev-item-right">
+                                    <h5 class="list-dev-subtitle">Principais skills</h5>
+                                    <span>Java, PHP, Javascript, AngularJS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-dev-item">
+                            <div class="list-dev-photo">
+                                <img src="images/default-photo.png">
+                            </div>
+
+                            <div class="list-dev-item-info">
+                                <div class="list-dev-item-left">
+                                    <h5 class="list-dev-name">Fábio Roberto da Rodrigues</h5>
+                                    <span>Projetos: 14 Hora</span><span>Horas/semana: 12</span>
+                                </div>
+
+                                <div class="list-dev-item-right">
+                                    <h5 class="list-dev-subtitle">Principais skills</h5>
+                                    <span>Java, PHP, Javascript, AngularJS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-dev-item">
+                            <div class="list-dev-photo">
+                                <img src="images/default-photo.png">
+                            </div>
+
+                            <div class="list-dev-item-info">
+                                <div class="list-dev-item-left">
+                                    <h5 class="list-dev-name">Fábio Roberto da Rodrigues</h5>
+                                    <span>Projetos: 14 Hora</span><span>Horas/semana: 12</span>
+                                </div>
+
+                                <div class="list-dev-item-right">
+                                    <h5 class="list-dev-subtitle">Principais skills</h5>
+                                    <span>Java, PHP, Javascript, AngularJS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-dev-item">
+                            <div class="list-dev-photo">
+                                <img src="images/default-photo.png">
+                            </div>
+
+                            <div class="list-dev-item-info">
+                                <div class="list-dev-item-left">
+                                    <h5 class="list-dev-name">Fábio Roberto da Rodrigues</h5>
+                                    <span>Projetos: 14 Hora</span><span>Horas/semana: 12</span>
+                                </div>
+
+                                <div class="list-dev-item-right">
+                                    <h5 class="list-dev-subtitle">Principais skills</h5>
+                                    <span>Java, PHP, Javascript, AngularJS</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        <!--- DEFAULT UNLOGGED PAGES TILL HERE -->
+            <footer>
+                <div class="container">
+                    <p>CONPEC - SADE - Sistema de Acompanhamento de Desenvolvedores Externos</p>
+                </div>
+            </footer>
+        </div>
+
+        
+
+    </body>
+</html>
