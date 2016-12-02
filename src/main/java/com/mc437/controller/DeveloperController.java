@@ -13,6 +13,6 @@ public class DeveloperController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String dev(){
-		return "manager-dev";
+		return "developer/manager-dev";
 	}
 }

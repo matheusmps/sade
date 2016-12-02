@@ -19,12 +19,12 @@ public class MemberController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String dev(){
-		return "manager-member";
+		return "member/manager-member";
 	}
 	
 	@RequestMapping(value = "list-dev", method = RequestMethod.GET)
 	public String listDev(ModelMap model){
 		model.addAttribute("devs", developerService.getAll());
-		return "member-list-dev";
+		return "member/member-list-dev";
 	}
 }
