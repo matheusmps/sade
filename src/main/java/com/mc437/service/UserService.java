@@ -3,6 +3,7 @@ package com.mc437.service;
 import java.util.List;
 
 import com.mc437.model.User;
+import com.mc437.model.UserType;
 
 
 public interface UserService {
@@ -18,6 +19,8 @@ public interface UserService {
 	void deleteUserByUsername(String sso);
 
 	List<User> findAllUsers(); 
+	
+	List<User> findByUserType(UserType type); 
 	
 	boolean isUsernameUnique(Integer id, String sso);
 

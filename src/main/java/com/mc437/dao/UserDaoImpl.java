@@ -11,6 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.mc437.model.User;
+import com.mc437.model.UserType;
+
+import ch.qos.logback.core.pattern.util.RestrictedEscapeUtil;
 
 
 
@@ -22,6 +25,13 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 	public User findById(int id) {
 		User user = getByKey(id);
 		return user;
+	}
+	
+	@Override
+	public List<User> findByUserType(UserType type) {
+		Criteria crit = createEntityCriteria();
+		crit.add(Restrictions.eq("type", type.getType()));
+		return crit.list();
 	}
 
 	public User findByUsername(String username) {

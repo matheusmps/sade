@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mc437.dao.UserDao;
 import com.mc437.model.User;
+import com.mc437.model.UserType;
 
 
 @Service("userService")
@@ -28,6 +29,12 @@ public class UserServiceImpl implements UserService{
 	public User findByUsername(String sso) {
 		User user = dao.findByUsername(sso);
 		return user;
+	}
+	
+	public List<User> findByUserType(UserType type){
+		if(type == null)
+			throw new RuntimeException("null type");
+		return dao.findByUserType(type);
 	}
 
 	public void saveUser(User user) {

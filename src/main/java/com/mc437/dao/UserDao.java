@@ -3,6 +3,7 @@ package com.mc437.dao;
 import java.util.List;
 
 import com.mc437.model.User;
+import com.mc437.model.UserType;
 
 
 public interface UserDao {
@@ -16,6 +17,8 @@ public interface UserDao {
 	void deleteByUsername(String username);
 	
 	List<User> findAllUsers();
+	
+	List<User> findByUserType(UserType type);
 
 }
 
