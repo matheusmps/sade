@@ -1,5 +1,6 @@
 package com.mc437.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,12 @@ public class UserServiceImpl implements UserService{
 	public List<User> findByUserType(UserType type){
 		if(type == null)
 			throw new RuntimeException("null type");
-		return dao.findByUserType(type);
+		List<Integer> ids = dao.findByUserType(type);
+		List<User> users = new ArrayList<User>();
+		for(Integer id : ids)
+			users.add(dao.findById(id));
+		
+		return users;
 	}
 
 	public void saveUser(User user) {
@@ -50,7 +56,6 @@ public class UserServiceImpl implements UserService{
 	public void updateUser(User user) {
 		User entity = dao.findById(user.getId());
 		if(entity!=null){
-			entity.setUsername(user.getUsername());
 			if(!user.getPassword().equals(entity.getPassword())){
 				entity.setPassword(passwordEncoder.encode(user.getPassword()));
 			}

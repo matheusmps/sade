@@ -3,7 +3,7 @@ package com.mc437.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
+import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
@@ -12,8 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import com.mc437.model.User;
 import com.mc437.model.UserType;
-
-import ch.qos.logback.core.pattern.util.RestrictedEscapeUtil;
 
 
 
@@ -28,10 +26,10 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 	}
 	
 	@Override
-	public List<User> findByUserType(UserType type) {
-		Criteria crit = createEntityCriteria();
-		crit.add(Restrictions.eq("type", type.getType()));
-		return crit.list();
+	public List<Integer> findByUserType(UserType type) {
+		Query query = getSession().createSQLQuery("select id from user where type = '" + type.getType() + "'");
+		List result = query.list();
+		return result;
 	}
 
 	public User findByUsername(String username) {

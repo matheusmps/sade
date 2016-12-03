@@ -18,7 +18,7 @@ public interface UserDao {
 	
 	List<User> findAllUsers();
 	
-	List<User> findByUserType(UserType type);
+	List<Integer> findByUserType(UserType type);
 
 }
 
