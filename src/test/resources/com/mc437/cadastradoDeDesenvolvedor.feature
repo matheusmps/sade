@@ -1,6 +1,7 @@
 Feature: Cadastrar um novo desenvolvedor
 
     Scenario: Cadastro de um novo desenvolvedor válido.
+<<<<<<< c4af648b2163d091c2c16bc1b403a646705ad9b6
         When Entro na página 'http://localhost:8080/register.html'
         When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
         Then sou redirecionado para a página "http://localhost:8080/dev-panel.html"
@@ -113,3 +114,23 @@ Feature: Cadastrar um novo desenvolvedor
         Then sou redirecionado para a página "http://localhost:8080/register.html"
         And é mostrada a mensagem de erro 18
         
+=======
+        When Entrar na página 'http://localhost:8080/sade-1.0.1/register.html#/'
+        And PENDING adiciono todas as informações obrigatórias para cadastro de desenvolvedor. Clico no botão "Cadastrar"
+        Then um novo desenvolvedor é criado. Sou redirecionado para a página de perfil deste desenvolvedor
+
+    Scenario: Cadastro de um desenvolvedor com cpf repetido
+        When Entrar na página 'http://localhost:8080/sade-1.0.1/register.html#/'
+        And PENDING adiciono todas as informações obrigatórias para cadastro de desenvolvedor, utilizando um número de cpf de um usuário já cadastrado. Clico no botão "Cadastrar"
+        Then uma mensagem de erro aparece "Cpf já utilizado". O desenvolvedor não é criado.
+
+    Scenario: Cadastro de um desenvolvedor com cpf inválido
+        When Entrar na página 'http://localhost:8080/sade-1.0.1/register.html#/'
+        And PENDING adiciono todas as informações obrigatórias para cadastro de desenvolvedor, utilizando um número de cpf inválido.
+        Then uma mensagem de erro aparece "Número de cpf inváldo". Desenvolvedor não é criado.
+
+    Scenario: Cadastro faltando informação obrigatória.
+        When Entrar na página 'http://localhost:8080/sade-1.0.1/register.html#/'
+        And PENDING clico no botão "Cadastrar" sem preencher alguma informação obrigatória.
+        Then uma mensagem de erro aparece "Informação xxx está faltando". Desenvolvedor não é criado.
+>>>>>>> Testes Cucumber OK \o/
