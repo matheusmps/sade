@@ -1,136 +1,59 @@
 Feature: Cadastrar um novo desenvolvedor
 
     Scenario: Cadastro de um novo desenvolvedor válido.
-<<<<<<< c4af648b2163d091c2c16bc1b403a646705ad9b6
         When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/dev-panel.html"
+        When coloco nome "Renato" sobrenome "Shibata" endereco "Rua tal" celular "12345678901" cpf "12345678901"  email "renato@gmail.com" username "renato" senha "123"
+		And não entrou com cpf já existente
+        Then sou redirecionado para a página "http://localhost:8080/dev-panel.html". O desenvolvedor é criado.
+           
+    Scenario: Cadastro de um desenvolvedor com entrada inválida
+        When Entro na página 'http://localhost:8080/register.html'
+        When coloco combinação inválida nos campos <nome>,<sobrenome>,<endereco>,<celular>,<cpf>,<email>,<username>,<senha> 
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro <erromsg>.O desenvolvedor não é criado.
         
-    Scenario: Cadastro de um desenvolvedor com nome vazio
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 1        
+        Examples:
+			|nome			|sobrenome	|endereco		|celular	 |cpf			|email				|username 	|senha 	|errormsg 	|
+			|				| 			|Rua tal		|12345678901 |12345678901	|renato@gmail.com	|renato		|123	|1			|
+			|				|Shibata	|Rua tal		|12345678901 |12345678901	|renato@gmail.com	|renato		|123	|1			|   
+			|Renato			|			|Rua tal		|12345678901 |12345678901	|renato@gmail.com	|renato		|123	|3			|   
+			|Ren&%ato		|Shibata	|Rua tal		|12345678901 |12345678901	|renato@gmail.com	|renato		|123	|2			|   
+			|Renato			|Shi%$#bata	|Rua tal		|12345678901 |12345678901	|renato@gmail.com	|renato		|123	|2			|   
+			|Renato			|Shibata	|Rua tal		|			 |12345678901	|renato@gmail.com	|renato		|123	|4			|   
+			|Renato			|Shibata	|Rua tal		|123sdf45 78 |12345678901	|renato@gmail.com	|renato		|123	|5			|   
+			|Renato			|Shibata	|Rua tal		|123456789012|12345678901	|renato@gmail.com	|renato		|123	|5			|   
+			|Renato			|Shibata	|Rua tal		|12345678	 |12345678901	|renato@gmail.com	|renato		|123	|5			|   
+			|Renato			|Shibata	|Rua tal		|12345678901 |				|renato@gmail.com	|renato		|123	|6			|   
+			|Renato			|Shibata	|Rua tal		|12345678901 |123456789012	|renato@gmail.com	|renato		|123	|7			|   
+			|Renato			|Shibata	|Rua tal		|12345678901 |12345678		|renato@gmail.com	|renato		|123	|7			|   
+			|Renato			|Shibata	|Rua tal		|12345678901 |123$e45 678	|renato@gmail.com	|renato		|123	|7			|   
+			|Renato			|Shibata	|				|12345678901 |12345678901	|renato@gmail.com	|renato		|123	|8			|   
+			|Renato			|Shibata	|Rua tal		|12345678901 |12345678901	|					|renato		|123	|9			|   
+			|Renato			|Shibata	|Rua tal		|12345678901 |12345678901	|renatogmail.com	|renato		|123	|10			|   
+			|Renato			|Shibata	|Rua tal		|12345678901 |12345678901	|ren@ato@gmail.com	|renato		|123	|10			|   
+			|Renato			|Shibata	|Rua tal		|12345678901 |12345678901	|		@gmail.com	|renato		|123	|10			|   
+			|Renato			|Shibata	|Rua tal		|12345678901 |12345678901	|renato@			|renato		|123	|10			|   			
+			|Renato			|Shibata	|Rua tal		|12345678901 |12345678901	|renato@gmail.com	|			|123	|11			|   			
+			|Renato			|Shibata	|Rua tal		|12345678901 |12345678901	|renato@gmail.com	|renato		|		|12			|   						
+# Legenda de errormsg: 
+# 1 = nome vazio
+# 2 = caracter invalido no nome ou sobrenome (uso de numero e/ou simbolos)
+# 3 = sobrenome vazio
+# 4 = celular vazio
+# 5 = celular invalido			(nao tem 11 digitos numericos)
+# 6 = cpf vazio
+# 7 = cpf invalido				(nao tem 11 digitos numericos)
+# 8 = endereco vazio
+# 9 = email vazio
+# 10 =email invalido 			(sem arroba, mais de um arroba, sem string antes do arroba)
+# 11= username vazio
+# 12= senha vazia 
 
-    Scenario: Cadastro de um desenvolvedor com nome inválido com caracter estranho
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Ren&%ato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 2
 
-    Scenario: Cadastro de um desenvolvedor com um nome só
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 3
-
-    Scenario: Cadastro de um desenvolvedor com telefone vazio
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 4
-
-    Scenario: Cadastro de um desenvolvedor com telefone inválido
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "123sdf45 78" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 5
-
-    Scenario: Cadastro de um desenvolvedor com telefone com mais numeros
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "123456789012" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 6
-
-    Scenario: Cadastro de um desenvolvedor com telefone com menos numeros
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 7
-
-    Scenario: Cadastro de um desenvolvedor com cpf vazio
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 8
-
-    Scenario: Cadastro de um desenvolvedor com cpf com mais numeros
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "123456789012" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 9
-
-    Scenario: Cadastro de um desenvolvedor com cpf com menos numeros
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 10
-
-    Scenario: Cadastro de um desenvolvedor com cpf inválido
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "123$e45 678" endereco "Rua tal" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 11
-
-    Scenario: Cadastro de um desenvolvedor com endereco vazio
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "" email "renato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 12
-
-    Scenario: Cadastro de um desenvolvedor com email vazio
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 13
-        
-    Scenario: Cadastro de um desenvolvedor com email sem arroba
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renatogmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 14
-        
-    Scenario: Cadastro de um desenvolvedor com email com mais de um arroba
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "ren@ato@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 15
-        
-    Scenario: Cadastro de um desenvolvedor com email com nada antes do arroba
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "@gmail.com" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 16    
-       
-    Scenario: Cadastro de um desenvolvedor com email com nada depois do arroba
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@" senha "renato"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 17 
-        
-    Scenario: Cadastro de um desenvolvedor com senha vazia
-        When Entro na página 'http://localhost:8080/register.html'
-        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha ""
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
-        And é mostrada a mensagem de erro 18
-        
-=======
+    Scenario: Cadastro de um desenvolvedor com cpf já existente
         When Entrar na página 'http://localhost:8080/sade-1.0.1/register.html#/'
-        And PENDING adiciono todas as informações obrigatórias para cadastro de desenvolvedor. Clico no botão "Cadastrar"
-        Then um novo desenvolvedor é criado. Sou redirecionado para a página de perfil deste desenvolvedor
+        When coloco nome "Renato" sobrenome "Shibata" endereco "Rua tal" celular "12345678901" cpf "12345678901"  email "renato@gmail.com" username "renato" senha "123"
+		And utilizando um número de cpf de um usuário já cadastrado. Clico no botão "Cadastrar"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"        
+		And uma mensagem de erro aparece "Cpf já utilizado". O desenvolvedor não é criado.
 
-    Scenario: Cadastro de um desenvolvedor com cpf repetido
-        When Entrar na página 'http://localhost:8080/sade-1.0.1/register.html#/'
-        And PENDING adiciono todas as informações obrigatórias para cadastro de desenvolvedor, utilizando um número de cpf de um usuário já cadastrado. Clico no botão "Cadastrar"
-        Then uma mensagem de erro aparece "Cpf já utilizado". O desenvolvedor não é criado.
-
-    Scenario: Cadastro de um desenvolvedor com cpf inválido
-        When Entrar na página 'http://localhost:8080/sade-1.0.1/register.html#/'
-        And PENDING adiciono todas as informações obrigatórias para cadastro de desenvolvedor, utilizando um número de cpf inválido.
-        Then uma mensagem de erro aparece "Número de cpf inváldo". Desenvolvedor não é criado.
-
-    Scenario: Cadastro faltando informação obrigatória.
-        When Entrar na página 'http://localhost:8080/sade-1.0.1/register.html#/'
-        And PENDING clico no botão "Cadastrar" sem preencher alguma informação obrigatória.
-        Then uma mensagem de erro aparece "Informação xxx está faltando". Desenvolvedor não é criado.
->>>>>>> Testes Cucumber OK \o/
