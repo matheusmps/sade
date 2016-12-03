@@ -1,21 +1,134 @@
 Feature: Cadastrar um novo desenvolvedor
 
     Scenario: Cadastro de um novo desenvolvedor válido.
-        When Entrar na página 'http://localhost:8080/register.html#/'
-        When PENDING adiciono todas as informações obrigatórias para cadastro de desenvolvedor. Clico no botão "Cadastrar"
-        Then um novo desenvolvedor é criado. Sou redirecionado para a página de perfil deste desenvolvedor
+    	Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/dev-panel.html"
+        
+    Scenario: Cadastro de um desenvolvedor com nome vazio
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 1        
 
-    Scenario: Cadastro de um desenvolvedor com cpf repetido
-        When Entrar na página 'http://localhost:8080/register.html#/'
-        When PENDING adiciono todas as informações obrigatórias para cadastro de desenvolvedor, utilizando um número de cpf de um usuário já cadastrado. Clico no botão "Cadastrar"
-        Then uma mensagem de erro aparece "Cpf já utilizado". O desenvolvedor não é criado.
+    Scenario: Cadastro de um desenvolvedor com nome inválido com caracter estranho
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Ren&%ato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 2
+
+    Scenario: Cadastro de um desenvolvedor com um nome só
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 3
+
+    Scenario: Cadastro de um desenvolvedor com telefone vazio
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 4
+
+    Scenario: Cadastro de um desenvolvedor com telefone inválido
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "123sdf45 78" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 5
+
+    Scenario: Cadastro de um desenvolvedor com telefone com mais numeros
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "123456789012" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 6
+
+    Scenario: Cadastro de um desenvolvedor com telefone com menos numeros
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 7
+
+    Scenario: Cadastro de um desenvolvedor com cpf vazio
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 8
+
+    Scenario: Cadastro de um desenvolvedor com cpf com mais numeros
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "123456789012" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 9
+
+    Scenario: Cadastro de um desenvolvedor com cpf com menos numeros
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 10
 
     Scenario: Cadastro de um desenvolvedor com cpf inválido
-        When Entrar na página 'http://localhost:8080/register.html#/'
-        When PENDING adiciono todas as informações obrigatórias para cadastro de desenvolvedor, utilizando um número de cpf inválido.
-        Then uma mensagem de erro aparece "Número de cpf inváldo". Desenvolvedor não é criado.
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "123$e45 678" endereco "Rua tal" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 11
 
-    Scenario: Cadastro faltando informação obrigatória.
-        When Entrar na página 'http://localhost:8080/register.html#/'
-        When PENDING clico no botão "Cadastrar" sem preencher alguma informação obrigatória.
-        Then uma mensagem de erro aparece "Informação xxx está faltando". Desenvolvedor não é criado.
+    Scenario: Cadastro de um desenvolvedor com endereco vazio
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "" email "renato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 12
+
+    Scenario: Cadastro de um desenvolvedor com email vazio
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 13
+        
+    Scenario: Cadastro de um desenvolvedor com email sem arroba
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renatogmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 14
+        
+    Scenario: Cadastro de um desenvolvedor com email com mais de um arroba
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "ren@ato@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 15
+        
+    Scenario: Cadastro de um desenvolvedor com email com nada antes do arroba
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "@gmail.com" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 16    
+       
+    Scenario: Cadastro de um desenvolvedor com email com nada depois do arroba
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@" senha "renato"
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 17 
+        
+    Scenario: Cadastro de um desenvolvedor com senha vazia
+        Given browser esta aberto
+        When Entrar na página 'http://localhost:8080/register.html'
+        When coloco nome "Renato Shibata" telefone "12345678901" cpf "12345678901" endereco "Rua tal" email "renato@gmail.com" senha ""
+        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        And é mostrada a mensagem de erro 18
+        
