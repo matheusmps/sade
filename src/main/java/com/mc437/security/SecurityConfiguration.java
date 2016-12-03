@@ -48,7 +48,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		http.authorizeRequests().antMatchers("/").permitAll()
 		.antMatchers("/dev*").access("hasRole('DEV')")
+		.antMatchers("/dev/**").access("hasRole('DEV')")
 		.antMatchers("/member*").access("hasRole('MEM')")
+		.antMatchers("/member/**").access("hasRole('MEM')")
 		.and().formLogin().loginPage("/login").loginProcessingUrl("/login").usernameParameter("username").passwordParameter("password")
 		.successHandler(successAuthHandler())
 		.and().rememberMe().rememberMeParameter("remember-me").tokenRepository(tokenRepository)
