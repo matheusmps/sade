@@ -12,7 +12,6 @@ import com.mc437.dao.UserDao;
 import com.mc437.model.User;
 import com.mc437.model.UserType;
 
-
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService{
