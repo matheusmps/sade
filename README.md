@@ -3,9 +3,9 @@
 ----
 ### PED: Jael Zela
 ### Alunos: 
-*	Renato Toshiaki Shibata	 -- RA:082674
+*	Renato Toshiaki Shibata	 -- RA: 082674
 *   Matheus Pinheiros		 -- RA:
-*	Stéfani Fernandes		 -- RA:
+*	Stéfani Fernandes		 -- RA: 147939
 *   Ronaldo Prata			 -- RA:
 *	Flávio Moura			 -- RA:
 *	Thiago					 -- RA:
