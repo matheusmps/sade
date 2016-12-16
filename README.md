@@ -4,13 +4,13 @@
 ### PED: Jael Zela
 ### Alunos: 
 *	Renato Toshiaki Shibata	 -- RA: 082674
-*   Matheus Pinheiros		 -- RA:
+*   Matheus Pinheiros		 -- RA: 119920
 *	Stéfani Fernandes		 -- RA: 147939
-*   Ronaldo Prata			 -- RA:
-*	Flávio Moura			 -- RA:
-*	Thiago					 -- RA:
-*	Yuri					 -- RA:
-*	Ronaldo					 -- RA:
+*   Ronaldo Prata			 -- RA: 157228
+*	Flávio Moura			 -- RA: 104947
+*	Thiago					 -- RA: 157413
+*	Yuri					 -- RA: 158526
+*	Felipe					 -- RA: 145993
 
 ## 1)Pré-requisitos para instalação
 1.  `Tomcat`: Possuir uma versão do Apache Tomcat instalado, de preferência versão 8.0 para cima. Link para donwload do [Tomcat 8.5.9]( http://tomcat.apache.org/download-80.cgi#8.5.8) tanto para Windows quanto para Linux.
