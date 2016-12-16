@@ -6,7 +6,7 @@ Feature: Entrar no sistema como um desenvolvedor do Sade.
         Then sou redirecionado para a página de dev
         And estou na página do dev Jo
 
-	Scenario: login inválido
+	Scenario Outline: login inválido
         Given Estou na página login dev
 		When preencho uma combinação inválida nos campos <username> e <pass>
 		Then sou redirecionado para a página de login

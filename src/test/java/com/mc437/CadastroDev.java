@@ -33,7 +33,7 @@ public class CadastroDev extends StepDefs{
 		driver.close();
 	}
 	
-	@When("^Entrar na página '(.*)'$")
+	@When("^Entro na página '(.*)'$")
 	public void open(String url){
 		driver.get(url);
 		
@@ -68,7 +68,7 @@ public class CadastroDev extends StepDefs{
 		assert isCorrectPage;
 	}
 	
-	@Then("^é mostrada a mensagem de erro (.*)")
+	@Then("^é retornado o erro (.*)")
 	public void chek_erro(String id){
 		WebElement errorbx = driver.findElement(By.id("erro"+id));
 		assertThat(errorbx.isDisplayed());
