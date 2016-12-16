@@ -16,10 +16,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class HomeScenario extends StepDefs {
+	
 	@Before
  	public void init(){
  		File classpathRoot = new File(System.getProperty("user.dir"));
- 		File chromedriver = new File(classpathRoot, "driver/chromedriver");
+ 		File chromedriver = new File(classpathRoot, DRIVER_URL);
  		System.setProperty("webdriver.chrome.driver", chromedriver.getAbsolutePath());
  		driver = new ChromeDriver();
  	}

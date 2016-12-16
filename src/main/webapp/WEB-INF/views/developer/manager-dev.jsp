@@ -37,22 +37,30 @@
 
                 <div class="content box-style">
                 	<form:form method="POST" modelAttribute="dev" class="form-dev-edit">
+                		<form:input type="hidden" path="id" id="id"/>
+                		<form:input type="hidden" path="email" id="email"/>
+                		<form:input type="hidden" path="cpf" id="cpf"/>
+                		<form:input type="hidden" path="username" id="username"/>
+                		<form:input type="hidden" path="firstName" id="firstName"/>
+                		<form:input type="hidden" path="lastName" id="lastName"/>
+                		<form:input type="hidden" path="password" id="password"/>
+                	
                         <fieldset>
                             <h2>Informações pessoais</h2>
                             <div class="row">     
                                 <div class="col-xs-3">
                                     <label for="phone">Telefone res.</label>
-                                    <form:input type="text" class="form-control" path="phoneNumber" autocomplete="off" id="phone" name="phone" value="${dev.phoneNumber}" aria-describedby="name" placeholder="Seu nome completo" />
+                                    <form:input type="text" class="form-control" path="phoneNumber" autocomplete="off" id="phone" name="phone" aria-describedby="name" placeholder="Seu telefone" />
                                 </div>
 
                                 <div class="col-xs-3">
                                     <label for="cellphone">Celular</label>
-                                    <form:input type="text" class="form-control" path="cellphoneNumber" autocomplete="off" id="cellphone" name="cellphone" value="${dev.cellphoneNumber}" aria-describedby="name" placeholder="Seu nome completo" />
+                                    <form:input type="text" class="form-control" path="cellphoneNumber" autocomplete="off" id="cellphone" name="cellphone" aria-describedby="name" placeholder="Seu celular" />
                                 </div>
 
                                 <div class="col-xs-6">
                                     <label for="address">Endereço</label>
-                                    <form:input type="text" class="form-control" path="address" autocomplete="off" id="address" name="address" value="${dev.address}" aria-describedby="name" placeholder="Seu nome completo" />
+                                    <form:input type="text" class="form-control" path="address" autocomplete="off" id="address" name="address" aria-describedby="name" placeholder="Seu endereço" />
                                 </div>
                             </div>
                         </fieldset>
@@ -62,31 +70,31 @@
                             <div class="row">     
                                 <div class="col-xs-6">
                                     <label for="phone">Insituição de ensino</label>
-                                    <form:input type="text" class="form-control" path="educationInstitution" autocomplete="off" id="phone" name="phone" value="${dev.educationInstitution}" aria-describedby="name" placeholder="Onde você estuda?" />
+                                    <form:input type="text" class="form-control" path="educationInstitution" autocomplete="off" id="phone" name="phone" aria-describedby="name" placeholder="Onde você estuda?" />
                                 </div>
 
                                 <div class="col-xs-4">
                                     <label for="address">Curso</label>
-                                    <form:input type="text" class="form-control" path="course" autocomplete="off" id="address" name="address" value="${dev.course}" aria-describedby="name" placeholder="Seu curso" />
+                                    <form:input type="text" class="form-control" path="course" autocomplete="off" id="address" name="address" aria-describedby="name" placeholder="Seu curso" />
                                 </div>
                                 <div class="col-xs-2">
                                     <label for="address">Ano</label>
-                                    <form:input type="number" class="form-control" path="courseStartYear" autocomplete="off" id="address" name="address" value="${dev.courseStartYear}" aria-describedby="name" placeholder="Ano do curso" />
+                                    <form:input type="number" class="form-control" path="courseStartYear" autocomplete="off" id="address" name="address" aria-describedby="name" placeholder="Ano do curso" />
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-xs-4">
                                     <label for="available_hours">Disponibilidade (h/semana)</label>
-                                    <form:input type="number" class="form-control" path="availableHours" autocomplete="off" id="available-hours" name="available_hours" value="${dev.availableHours}" aria-describedby="name" placeholder="Disponibilidade de trabalho" />
+                                    <form:input type="number" class="form-control" path="availableHours" autocomplete="off" id="available-hours" name="available_hours" aria-describedby="name" placeholder="Disponibilidade de trabalho" />
                                 </div>
                                 <div class="col-xs-4">
                                     <label for="college_hours">Horas graduação (h/semana)</label>
-                                    <form:input type="number" class="form-control" path="courseHours" autocomplete="off" id="college_hours" name="college_hours" value="${dev.courseHours}" aria-describedby="name" placeholder="Horas da graduação" />
+                                    <form:input type="number" class="form-control" path="courseHours" autocomplete="off" id="college_hours" name="college_hours" aria-describedby="name" placeholder="Horas da graduação" />
                                 </div>
                                 <div class="col-xs-4">
                                     <label for="internship_hours">Horas estágio (h/semana)</label>
-                                    <form:input type="number" class="form-control" path="internshipHours" autocomplete="off" id="internship-hours" name="internship_hours" value="${dev.internshipHours}" aria-describedby="name" placeholder="Horas de estágio" />
+                                    <form:input type="number" class="form-control" path="internshipHours" autocomplete="off" id="internship-hours" name="internship_hours" aria-describedby="name" placeholder="Horas de estágio" />
                                 </div>                                
                             </div>
                         </fieldset>

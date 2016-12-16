@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.mc437.model.Developer;
 import com.mc437.model.User;
 import com.mc437.service.DeveloperServiceImpl;
 import com.mc437.service.UserService;
@@ -32,10 +33,12 @@ public class MemberController {
 	
 	@RequestMapping(method = RequestMethod.POST, value={"", "/", "perfil"})
 	public String savePerfil(@Valid User user, BindingResult result, ModelMap model){
+		if(result.hasErrors())
+			return "member/manager-member";
+		
 		userService.updateUser(user);
 		return perfil();
 	}
-	
 	
 	@RequestMapping(value = "list-dev", method = RequestMethod.GET)
 	public String listDev(ModelMap model){

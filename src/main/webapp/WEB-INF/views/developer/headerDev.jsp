@@ -12,7 +12,7 @@
                     <a href="">Dados da conta</a>
                 </li>
                 <li>
-                    <a href="">Sair</a>
+                    <a href="<c:url value="/logout" />">Sair</a>
                 </li>
             </ul>
         </div>

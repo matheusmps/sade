@@ -3,7 +3,6 @@ package com.mc437;
 import java.io.File;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,20 +18,20 @@ import cucumber.api.java.en.When;
 public class LoginMembroScenario extends StepDefs {
 	private static final String login = "admin";
 	private static final String pass = "abc125";
-
+	
 	@Before
-	public void init(){
-		File classpathRoot = new File(System.getProperty("user.dir"));
-		File chromedriver = new File(classpathRoot, "driver/chromedriver");
-		System.setProperty("webdriver.chrome.driver", chromedriver.getAbsolutePath());
-		driver = new ChromeDriver();
-	}
-
-	@After
-	public void tearDown(){
-		driver.close();
-	}				
-
+ 	public void init(){
+ 		File classpathRoot = new File(System.getProperty("user.dir"));
+ 		File chromedriver = new File(classpathRoot, DRIVER_URL);
+ 		System.setProperty("webdriver.chrome.driver", chromedriver.getAbsolutePath());
+ 		driver = new ChromeDriver();
+ 	}
+ 	
+ 	@After
+ 	public void tearDown(){
+ 		driver.close();
+ 	}
+	
 	@When("Entrar na página login admin")
 	public void openMembro(){
 		driver.get(ROOT_URL + "login/");

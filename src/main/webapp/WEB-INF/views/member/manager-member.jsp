@@ -29,38 +29,58 @@
 	        <div class="content box-style">
 	            <form:form method="POST" modelAttribute="loggedinuser" class="form-dev-edit">
 					<form:input type="hidden" path="id" id="id"/>
+					<form:input type="hidden" path="username" id="username"/>
 
 	                <fieldset>
 	                    <h2>Informações pessoais</h2>
 	                    <div class="row">     
+	                    
 	                        <div class="col-xs-3">
 	                            <label for="username">Username</label>
 	                            <form:input path="username" type="text" class="form-control" autocomplete="off" id="username" aria-describedby="name" placeholder="Seu username" disabled="true"/>
+	                            <div class="has-error">
+									<form:errors path="username" class="help-inline"/>
+								</div>
 	                        </div>
 	
 	                        <div class="col-xs-3">
 	                            <label for="firstName">Nome</label>
 	                            <form:input path="firstName" type="text" class="form-control" autocomplete="off" id="firstName" placeholder="Seu nome" />
+	                            <div class="has-error">
+									<form:errors path="firstName" class="help-inline"/>
+								</div>
 	                        </div>
 	
 	                        <div class="col-xs-3">
 	                            <label for="address">Sobrenome</label>
 	                            <form:input path="lastName" type="text" class="form-control" autocomplete="off" id="lastName" placeholder="Seu sobrenome" />
+	                            <div class="has-error">
+									<form:errors path="lastName" class="help-inline"/>
+								</div>
 	                        </div>
 
 	                        <div class="col-xs-3">
 	                            <label for="address">CPF</label>
 	                            <form:input path="cpf" type="text" class="form-control" autocomplete="off" id="cpf" placeholder="Seu cpf" />
+	                            <div class="has-error">
+									<form:errors path="cpf" class="help-inline"/>
+								</div>
 	                        </div>
 	                    </div>
 	                    <div class="row">
 	                        <div class="col-xs-6">
 	                            <label for="address">E-mail</label>
 	                            <form:input path="email" type="text" class="form-control" autocomplete="off" id="email" placeholder="Seu e-mail completo" />
+	                            <div class="has-error">
+									<form:errors path="email" class="help-inline"/>
+								</div>
 	                        </div>
 							<div class="col-xs-6">
 	                            <label for="address">Password</label>
 	                            <form:input path="password" type="password" class="form-control" autocomplete="off" id="password" placeholder="Seu password" />
+	                            <div class="has-error">
+									<form:errors path="password" class="help-inline"/>
+								</div>
 	                        </div>
 	                    </div>
 	                </fieldset>

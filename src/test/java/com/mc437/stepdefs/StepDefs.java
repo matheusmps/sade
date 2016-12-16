@@ -11,5 +11,6 @@ import com.mc437.configuration.AppConfig;
 @ContextConfiguration(loader = AnnotationConfigWebContextLoader.class, classes = { AppConfig.class })
 public abstract class StepDefs {
     protected WebDriver driver;
-    protected static final String ROOT_URL = "http://localhost:8080/sade-1.0.0/";
+    protected static final String ROOT_URL = "http://localhost:8080/sade/";
+    protected static final String DRIVER_URL = "driver/chromedriver-mac";
 }

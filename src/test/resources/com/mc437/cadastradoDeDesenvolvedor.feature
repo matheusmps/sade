@@ -1,15 +1,15 @@
 Feature: Cadastrar um novo desenvolvedor
 
     Scenario: Cadastro de um novo desenvolvedor válido.
-        When Entro na página 'http://localhost:8080/register.html'
+        When Entro na página 'http://localhost:8080/sade/register.html'
         When coloco nome "Renato" sobrenome "Shibata" endereco "Rua tal" celular "12345678901" cpf "12345678901"  email "renato@gmail.com" username "renato" senha "123"
 		And não entrou com cpf já existente
         Then sou redirecionado para a página "http://localhost:8080/dev-panel.html". O desenvolvedor é criado.
            
     Scenario Outline: Cadastro de um desenvolvedor com entrada inválida
-        When Entro na página 'http://localhost:8080/register.html'
+        When Entro na página 'http://localhost:8080/sade/register.html'
         When coloco combinação inválida nos campos <nome>,<sobrenome>,<endereco>,<celular>,<cpf>,<email>,<username>,<senha> 
-        Then sou redirecionado para a página "http://localhost:8080/register.html"
+        Then sou redirecionado para a página "http://localhost:8080/sade/register.html"
         And é retornado o erro <erromsg>.O desenvolvedor não é criado.
         
         Examples:
@@ -51,9 +51,9 @@ Feature: Cadastrar um novo desenvolvedor
 
 
     Scenario: Cadastro de um desenvolvedor com cpf já existente
-        When Entro na página 'http://localhost:8080/sade-1.0.1/register.html#/'
+        When Entro na página 'http://localhost:8080/sade/register.html/'
         When coloco nome "Renato" sobrenome "Shibata" endereco "Rua tal" celular "12345678901" cpf "12345678901"  email "renato@gmail.com" username "renato" senha "123"
 		And utilizando um número de cpf de um usuário já cadastrado. Clico no botão "Cadastrar"
-        Then sou redirecionado para a página "http://localhost:8080/register.html"        
+        Then sou redirecionado para a página "http://localhost:8080/sade/register.html"        
 		And uma mensagem de erro aparece "Cpf já utilizado". O desenvolvedor não é criado.
 

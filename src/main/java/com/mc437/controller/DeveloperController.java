@@ -1,8 +1,12 @@
 package com.mc437.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -29,15 +33,14 @@ public class DeveloperController {
 		return "developer/manager-dev";
 	}
 	
-	/*@RequestMapping(method = RequestMethod.POST)
-	public String saveDeveloper(@Valid Developer developer, BindingResult result, ModelMap model) {
+	@RequestMapping(method = RequestMethod.POST)
+	public String saveDeveloper(@ModelAttribute("dev") @Valid Developer dev, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
 			return "developer/manager-dev";
 		}
 
-		developerSevice.updateDeveloper(developer);		
-
+		developerService.updateDeveloper(dev);		
 		return "developer/manager-dev";
-	}*/
+	}
 	
 }
