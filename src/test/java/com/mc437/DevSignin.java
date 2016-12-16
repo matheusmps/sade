@@ -19,22 +19,9 @@ import cucumber.api.java.en.When;
 
 public class DevSignin extends StepDefs {
 	
-	@Before
- 	public void init(){
- 		File classpathRoot = new File(System.getProperty("user.dir"));
- 		File chromedriver = new File(classpathRoot, DRIVER_URL);
- 		System.setProperty("webdriver.chrome.driver", chromedriver.getAbsolutePath());
- 		driver = new ChromeDriver();
- 	}
- 	
- 	@After
- 	public void tearDown(){
- 		driver.close();
- 	}
-		
 	@When("^coloco usuário \"([^\"]*)\" e senha \"([^\"]*)\"$")
 	public void user_pass_input(String user, String password){
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebDriverWait wait = new WebDriverWait(driver, 100);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
 		
 		WebElement email = driver.findElement(By.id("username"));
@@ -47,13 +34,13 @@ public class DevSignin extends StepDefs {
 	
 	@Then("^sou redirecionado para a página de ([^\"]*)$")
 	public void check_page(String url){		
-		assertThat(driver.getCurrentUrl().equals(url));
+		assertThat(driver.getCurrentUrl().equals(ROOT_URL + url));
 	}
 	
 	@Then("estou na página do dev ([^\"]*)$")
 	public void ownership(String dev){
-		WebElement owner = driver.findElement(By.tagName("span"));
-		assertThat(owner.getText().equals("Olá " + dev));
+		WebElement owner = driver.findElement(By.id("loggedUserName"));
+		assertThat(owner.getText().equals(dev));
 	}
 
 }

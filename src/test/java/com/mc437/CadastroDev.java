@@ -16,21 +16,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CadastroDev extends StepDefs{
-	
-	@Before
- 	public void init(){
- 		File classpathRoot = new File(System.getProperty("user.dir"));
- 		File chromedriver = new File(classpathRoot, DRIVER_URL);
- 		System.setProperty("webdriver.chrome.driver", chromedriver.getAbsolutePath());
- 		driver = new ChromeDriver();
- 	}
- 	
- 	@After
- 	public void tearDown(){
- 		driver.close();
- 	}
 		
-	@When("^coloco nome \"([^\"]*)\" telefone \"([^\"]*)\" cpf \"([^\"]*)\" endereco \"([^\"]*)\" email \"([^\"]*)\" senha \"([^\"]*)\"$")
+	@When("^coloco nome \"([^\"]*)\" sobrenome \"([^\"]*)\" endereco \"([^\"]*)\" celular \"([^\"]*)\" cpf \"([^\"]*)\"  email \"([^\"]*)\" username \"([^\"]*)\" senha \"([^\"]*)\"$")
 	public void user_pass_input(String nome, String telefone, String cpf, String endereco, String email, String senha){
 		WebElement name = driver.findElement(By.id("name"));
 		WebElement tel = driver.findElement(By.id("phone"));
@@ -55,10 +42,10 @@ public class CadastroDev extends StepDefs{
 //		assert isCorrectPage;
 //	}
 	
-	@Then("^é mostrada a mensagem de erro (.*)")
-	public void chek_erro(String id){
-		WebElement errorbx = driver.findElement(By.id("erro"+id));
-		assertThat(errorbx.isDisplayed());
+	@Then("^é mostrada a mensagem de erro \"(.*)\"")
+	public void chek_erro(String msg){
+		WebElement errorbx = driver.findElement(By.className("alert"));
+		assertThat(errorbx.getText().equals(msg));
 	}
 
 		

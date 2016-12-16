@@ -17,23 +17,25 @@
                     <div class="list-dev">
                     
                     	<c:forEach items="${devs}" var="dev">
-	                        <div class="list-dev-item">
-	                            <div class="list-dev-photo">
-	                                <img src="<c:url value="/static/images/default-photo.png" />">
-	                            </div>
-	
-	                            <div class="list-dev-item-info">
-	                                <div class="list-dev-item-left">
-	                                    <h5 class="list-dev-name">${dev.name}</h5>
-	                                    <span>Projetos: 14 Hora</span><span>Horas/semana: ${dev.availableHours}</span>
-	                                </div>
-	
-	                                <div class="list-dev-item-right">
-	                                    <h5 class="list-dev-subtitle">Principais skills</h5>
-	                                    <span>Java, PHP, Javascript, AngularJS</span>
-	                                </div>
-	                            </div>
-	                        </div>
+                    		<a href="<c:url value="dev/${dev.id}" />">
+		                        <div class="list-dev-item">
+		                            <div class="list-dev-photo">
+		                                <img src="<c:url value="/static/images/default-photo.png" />">
+		                            </div>
+		
+		                            <div class="list-dev-item-info">
+		                                <div class="list-dev-item-left">
+		                                    <h5 class="list-dev-name">${dev.name}</h5>
+		                                    <span>Projetos: 14 Hora</span><span>Horas/semana: ${dev.availableHours}</span>
+		                                </div>
+		
+		                                <div class="list-dev-item-right">
+		                                    <h5 class="list-dev-subtitle">Principais skills</h5>
+		                                    <span>Java, PHP, Javascript, AngularJS</span>
+		                                </div>
+		                            </div>
+		                        </div>
+                    		</a>
                     	</c:forEach>
                         
                     </div>

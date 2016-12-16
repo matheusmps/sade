@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -45,4 +47,23 @@ public class MemberController {
 		model.addAttribute("devs", developerService.getAll());
 		return "member/member-list-dev";
 	}
+	
+	@RequestMapping(value = "dev/{id}")
+	public String editDev(@PathVariable(value="id") String id, ModelMap model){
+		Developer dev = developerService.findById(Integer.parseInt(id));
+		model.addAttribute("dev", dev);
+		return "member/member-dev";
+	}
+	
+	@RequestMapping(value = "dev/{id}", method = RequestMethod.POST)
+	public String saveDev(@ModelAttribute("dev") @Valid Developer dev, BindingResult result, @PathVariable(value="id") String id, ModelMap model){
+		if (result.hasErrors()) {
+			return "member/member-dev";
+		}
+
+		developerService.updateDeveloper(dev);		
+		return "member/member-dev";
+	}
+	
+	
 }

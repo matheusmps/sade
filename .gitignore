@@ -3,3 +3,6 @@ target/
 .settings/org.eclipse.core.resources.prefs
 RemoteSystemsTempFiles/
 bin/
+.classpath
+.project
+.settings/org.eclipse.wst.common.component

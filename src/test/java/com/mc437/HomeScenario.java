@@ -5,7 +5,6 @@ import java.io.File;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.mc437.stepdefs.StepDefs;
@@ -29,8 +28,9 @@ public class HomeScenario extends StepDefs {
  	public void tearDown(){
  		driver.close();
  	}
- 	
- 	@When("^Entrar na página '(.*)'$")
+	
+	
+	@When("^Entrar na página '(.*)'$")
  	public void open(String url){
  		driver.get(url);
  		

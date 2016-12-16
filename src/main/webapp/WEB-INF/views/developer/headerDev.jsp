@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <img src="">
             <c:if test="${not empty loggedinuser}">
-            	<a class="user-name navbar-brand" href="#">${loggedinuser.firstName}</a>
+            	<a class="user-name navbar-brand" href="#" id="loggedUserName">${loggedinuser.firstName}</a>
             </c:if>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
