@@ -16,22 +16,35 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CadastroDev extends StepDefs{
+	
+	@Then("sou redirecionado para a página inicial de dev")
+	public void redirecionarPaginaMembro(){
+		String url = ROOT_URL + "dev";
+		boolean isCorrectPage = driver.getCurrentUrl().equals(url);
 		
-	@When("^coloco nome \"([^\"]*)\" sobrenome \"([^\"]*)\" endereco \"([^\"]*)\" celular \"([^\"]*)\" cpf \"([^\"]*)\"  email \"([^\"]*)\" username \"([^\"]*)\" senha \"([^\"]*)\"$")
-	public void user_pass_input(String nome, String telefone, String cpf, String endereco, String email, String senha){
-		WebElement name = driver.findElement(By.id("name"));
-		WebElement tel = driver.findElement(By.id("phone"));
-		WebElement cp_f = driver.findElement(By.id("cpf"));
+		System.out.println("TESTE: " + driver.getCurrentUrl());
+		assert isCorrectPage;
+	}
+		
+	@When("^coloco combinação nos campos ([^\"]*),([^\"]*),([^\"]*),([^\"]*),([^\"]*),([^\"]*),([^\"]*),([^\"]*)$")
+	public void user_pass_input(String nome, String sobrenome, String endereco, String celular, String cpf, String email, String username, String senha){
+		WebElement name = driver.findElement(By.id("firstName"));
+		WebElement lastName = driver.findElement(By.id("lastName"));
 		WebElement address = driver.findElement(By.id("address"));
-		WebElement e_mail = driver.findElement(By.id("email"));
-		WebElement pass = driver.findElement(By.id("pass"));
+		WebElement tel = driver.findElement(By.id("cellphoneNumber"));
+		WebElement cpfInput = driver.findElement(By.id("cpf"));
+		WebElement emailInput = driver.findElement(By.id("email"));
+		WebElement usernameInput = driver.findElement(By.id("username"));
+		WebElement pass = driver.findElement(By.id("password"));
 		WebElement cadastrar = driver.findElement(By.id("cadastrar"));
 		
 		name.sendKeys(nome);
-		tel.sendKeys(telefone);
-		cp_f.sendKeys(cpf);
+		lastName.sendKeys(sobrenome);
 		address.sendKeys(endereco);
-		e_mail.sendKeys(email);
+		tel.sendKeys(celular);
+		cpfInput.sendKeys(cpf);
+		emailInput.sendKeys(email);
+//		usernameInput.sendKeys(arg0);
 		pass.sendKeys(senha);	
 		cadastrar.click();
 	}
