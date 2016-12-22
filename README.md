@@ -27,6 +27,15 @@
 Primeiramente, clone do repositório do `Github` o projeto Sade:
 >$   git clone https://github.com/matheusmps/sade
 
+Agora precisamos antes de tudo alterar as informações sobre o banco de dados (estamos utilizando Mysql) que será utilzado para o projeto. Abra o arquivo:
+> src/main/resources/application.properties
+
+E altere as seguintes propriedads com as informações correspondetes ao banco:
+>jdbc.driver: só alterar se for utilizar outro banco que não Mysql (ainda assim ele deve ser relacional)
+>jdbc.url: url para o banco (se local usar por exemplo: jdbc:mysql://localhost:3306/sade)
+>jdbc.username
+>jdbc.password
+
 Em seguida, entra na pasta do projeto e rode o maven: 
 >$ mvn clean install -DskipTests=true
 
